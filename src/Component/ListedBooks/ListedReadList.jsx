@@ -1,27 +1,29 @@
-import React, { use } from 'react';
+import React, { useContext } from 'react';
+import { BookContext } from '../../Context/BookProvider';
 import { Link } from 'react-router';
-const bookPromice = fetch("/booksData.json").then((res) => res.json());
 
-const Books = () => {
-    const books = use(bookPromice);
-    // console.log(books);
+
+const ListedReadList = () => {
+    const { storedBooks } = useContext(BookContext);
+    if(storedBooks.length === 0){
+        return <div>
+            <h2>No Read list data foud</h2>
+        </div>
+    }
     return (
-
-        <div className='w-full bg-gray-50'>
-            <div className='max-w-7xl mx-auto px-4 md:px-8'>
-                <h1 className='text-gray-900 text-center text-3xl font-bold'>Books</h1>
-                <div className='grid md:grid-cols-3 gap-10'>
+        <div>
+            <div>
                 {
-                    books.map(book => (
-                        <Link to={`/bookDetails/${book.bookId}`} key={book.bookId} className=" p-5 card bg-base-100 w-96 shadow-sm">
+                    storedBooks.map((book, ind) => (
+                        <Link key={ind} className=" p-5 card bg-base-100 w-96 shadow-sm">
                             <figure>
                                 <img
-                                className='h-40'
+                                    className='h-40'
                                     src={book.image} />
                             </figure>
                             <div className="card-body">
                                 <div className='flex gap-3'>
-                                    {book.tags.map((tag,ind) => (
+                                    {book.tags.map((tag, ind) => (
                                         <div key={ind} className="badge badge-secondary">{tag}</div>
                                     ))}
                                 </div>
@@ -37,11 +39,9 @@ const Books = () => {
                         </Link>
                     ))
                 }
-
-                </div>
             </div>
         </div>
     );
 };
 
-export default Books;
+export default ListedReadList;

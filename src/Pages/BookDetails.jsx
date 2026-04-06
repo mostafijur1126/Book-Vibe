@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { BookContext } from '../Context/BookProvider';
 
 const BookDetails = () => {
     const { bookId } = useParams();
@@ -16,7 +17,7 @@ const BookDetails = () => {
             </div>
         );
     }
-
+    const {hendelReadBook,hendelWishlistBook} = useContext(BookContext);
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-7xl mx-auto">
@@ -150,7 +151,7 @@ const BookDetails = () => {
 
                                 {/* Action Buttons */}
                                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                                    <button className="group relative px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 overflow-hidden">
+                                    <button onClick={() => hendelReadBook(expectBooks)} className="group relative px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 overflow-hidden">
                                         <span className="relative z-10 flex items-center justify-center gap-2">
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -160,7 +161,7 @@ const BookDetails = () => {
                                         </span>
                                     </button>
                                     
-                                    <button className="group px-6 py-3 bg-white border-2 border-indigo-600 text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 transform hover:-translate-y-0.5 transition-all duration-200">
+                                    <button onClick={()=> hendelWishlistBook(expectBooks)} className="group px-6 py-3 bg-white border-2 border-indigo-600 text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 transform hover:-translate-y-0.5 transition-all duration-200">
                                         <span className="flex items-center justify-center gap-2">
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
