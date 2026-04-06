@@ -1,4 +1,5 @@
 import React, { use } from 'react';
+import { Link } from 'react-router';
 const bookPromice = fetch("/booksData.json").then((res) => res.json());
 
 const Books = () => {
@@ -12,7 +13,7 @@ const Books = () => {
                 <div className='grid md:grid-cols-3 gap-10'>
                 {
                     books.map(book => (
-                        <div className=" p-5 card bg-base-100 w-96 shadow-sm">
+                        <Link to={`/bookDetails/${book.bookId}`} key={book.bookId} className=" p-5 card bg-base-100 w-96 shadow-sm">
                             <figure>
                                 <img
                                 className='h-40'
@@ -20,8 +21,8 @@ const Books = () => {
                             </figure>
                             <div className="card-body">
                                 <div className='flex gap-3'>
-                                    {book.tags.map((tag) => (
-                                        <div className="badge badge-secondary">{tag}</div>
+                                    {book.tags.map((tag,ind) => (
+                                        <div key={ind} className="badge badge-secondary">{tag}</div>
                                     ))}
                                 </div>
                                 <h2 className="card-title">
@@ -33,7 +34,7 @@ const Books = () => {
                                     <div className="">{book.rating}</div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))
                 }
 
