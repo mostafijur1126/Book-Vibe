@@ -1,2 +1,39 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+
+/* Custom Tab Styles - Add to your index.css or App.css */
+.react-tabs__tab--selected {
+  background: white !important;
+  color: #2563eb !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.react-tabs__tab:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.react-tabs__tab:focus:after {
+  display: none !important;
+}
+
+/* Smooth transitions */
+.react-tabs__tab-panel {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
