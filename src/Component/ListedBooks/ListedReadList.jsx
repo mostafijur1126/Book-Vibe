@@ -1,11 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BookContext } from '../../Context/BookProvider';
 import { Link } from 'react-router';
 
 
-const ListedReadList = () => {
+const ListedReadList = ({shortingType}) => {
     const { storedBooks } = useContext(BookContext);
-    if(storedBooks.length === 0){
+    const [filteredReadlist,setFilteredReadlist] = useState(storedBooks);
+
+    useEffect(()=>{
+        if(shortingType){
+            if(shortingType === "pages"){
+                const sortedData = [...storedBooks].sort((a,b)=> a.totalPages - b.totalPages);
+                setFilteredReadlist(sortedData);
+            }else if(shortingType === "reating"){
+                const sortedData = [...storedBooks].sort((a,b)=> a.rating - b.rating);
+                setFilteredReadlist(sortedData);
+            }
+        }
+    },[shortingType]);
+
+
+    if(filteredReadlist.length === 0){
         return <div>
             <h2>No Read list data foud</h2>
         </div>
@@ -14,7 +29,7 @@ const ListedReadList = () => {
         <div>
             <div>
                 {
-                    storedBooks.map((book, ind) => (
+                    filteredReadlist.map((book, ind) => (
                         <Link key={ind} className=" p-5 card bg-base-100 w-96 shadow-sm">
                             <figure>
                                 <img

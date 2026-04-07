@@ -1,19 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BookContext } from '../../Context/BookProvider';
 import { Link } from 'react-router';
 
-const ListedWishlist = () => {
+const ListedWishlist = ({shortingType}) => {
     const { wishlist } = useContext(BookContext);
-    if(wishlist.length === 0){
+
+    const [filteredwishlist, setFilteredwishlist] = useState(wishlist);
+
+    useEffect(() => {
+        if (shortingType) {
+            if (shortingType === "pages") {
+                const sortedData = [...wishlist].sort((a, b) => a.totalPages - b.totalPages);
+                setFilteredwishlist(sortedData);
+            } else if (shortingType === "reating") {
+                const sortedData = [...wishlist].sort((a, b) => a.rating - b.rating);
+                setFilteredwishlist(sortedData);
+            }
+        }
+    }, [shortingType,wishlist]);
+
+    if (filteredwishlist.length === 0) {
         return <div>
             <h2>No Wish list data foud</h2>
         </div>
     }
     return (
         <div>
-            <div>
+            <div className='grid grid-cols-3'>
                 {
-                    wishlist.map((book, ind) => (
+                    filteredwishlist.map((book, ind) => (
                         <Link key={ind} className=" p-5 card bg-base-100 w-96 shadow-sm">
                             <figure>
                                 <img
