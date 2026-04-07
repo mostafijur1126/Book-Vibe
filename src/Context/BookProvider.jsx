@@ -1,14 +1,22 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import ListedBooks from '../Pages/ListedBooks';
+import { addReadlistFormLocalDB, getAllReadlistFormLocalDB } from '../utils/localDB';
 
 export const BookContext = createContext();
 
 const BookProvider = ({ children }) => {
-    const [storedBooks, setStoredBooks] = useState([]);
+    const [storedBooks, setStoredBooks] = useState(()=> getAllReadlistFormLocalDB());
     const [wishlist, setWishlist] = useState([]);
 
+    // useEffect(()=> {
+    //     const getAlReadlistFormLDB = getAllReadlistFormLocalDB();
+    //     // console.log(getAlReadlistFormLDB);
+    // },[]);
+console.log(storedBooks);
+
     function hendelReadBook(books) {
+        addReadlistFormLocalDB(books);
         const isExistBook = storedBooks.find(
             (book) => book.bookId === books.bookId
         );

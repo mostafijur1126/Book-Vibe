@@ -27,7 +27,7 @@ const ListedReadList = ({shortingType}) => {
     }
     return (
         <div>
-            <div>
+            <div className='grid grid-cols-3'>
                 {
                     filteredReadlist.map((book, ind) => (
                         <Link key={ind} className=" p-5 card bg-base-100 w-96 shadow-sm">
