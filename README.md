@@ -1,16 +1,105 @@
-# React + Vite
+![React](https://img.shields.io/badge/React-19-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC)
+![DaisyUI](https://img.shields.io/badge/DaisyUI-Latest-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📚 Book Vibe
 
-Currently, two official plugins are available:
+Book Vibe is a React-based book management application that allows users to discover books, manage personal reading lists, and share reviews. The project focuses on providing a clean, responsive, and user-friendly reading experience using browser Local Storage for data persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Screenshots
 
-## React Compiler
+### Home Page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Home Page](./screenshots/home.png)
 
-## Expanding the ESLint configuration
+### Book Details
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Book Details](./screenshots/book-details.png)
+
+### Reading List
+
+![Reading List](./screenshots/reading-list.png)
+
+## 🌐 Live Demo
+
+https://book-vibe-dusky.vercel.app
+
+## 🚀 Features
+
+### 📖 Browse Books
+
+- Explore a collection of books.
+- View detailed information for each book.
+- Clean and responsive book cards.
+
+### 📚 Reading List Management
+
+- Add books to your reading list.
+- Manage and organize books locally.
+- Reading list data persists using Local Storage.
+
+### ⭐ Book Reviews
+
+- Add reviews for books.
+- View reviews from users.
+- Update reading status.
+
+### 🔍 Easy Navigation
+
+- Browse books by category.
+- View detailed book information.
+- Smooth user experience with React Router.
+
+### 💾 Local Storage Integration
+
+- No backend required.
+- User data is stored in the browser using Local Storage.
+- Data remains available after page refresh.
+
+### 📱 Fully Responsive Design
+
+- Mobile-friendly interface.
+- Tablet and desktop optimized layouts.
+- Modern and clean UI.
+
+---
+
+## 🛠️ Tech Stack
+
+- React.js
+- React Router DOM
+- Tailwind CSS
+- DaisyUI
+- React Icons
+- Local Storage
+
+---
+
+## 🎯 Key Functionalities
+
+- Browse books
+- View book details
+- Add book reviews
+- Manage reading lists
+- Store data using Local Storage
+- Fully responsive UI
+
+---
+
+## 🚧 Future Improvements
+
+- User Authentication
+- Backend Integration
+- Database Support
+- User Profiles
+- Wishlist Feature
+- Personalized Recommendations
+
+---
+
+## 👨‍💻 Developer
+
+**Mostafijur Rahman**
+
+GitHub: https://github.com/mostafijur1126
