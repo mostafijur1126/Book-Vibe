@@ -11,15 +11,15 @@ Book Vibe is a React-based book management application that allows users to disc
 
 ### Home Page
 
-![Home Page](.screenshots/home.png)
+![Home Page](./screenshots/home.png)
 
 ### Book Details
 
-![Book Details](.screenshots/book-details.png)
+![Book Details](./screenshots/book-details.png)
 
 ### Reading List
 
-![Reading List](.screenshots/reading-list.png)
+![Reading List](./screenshots/reading-list.png)
 
 ## 🌐 Live Demo
 
